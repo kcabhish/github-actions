@@ -1,0 +1,13 @@
+name: First Workflow
+on: workflow_dispatch
+jobs:
+  first-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print greeting
+        run: echo "Hello World!"
+      - name: Print goodbbye
+        run: |
+          echo "Done"
+          echo "adding the pipeline allows user to run the multiple shell commands"
+          echo "hello world"
