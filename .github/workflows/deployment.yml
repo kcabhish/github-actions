@@ -6,7 +6,7 @@ on:
          - opened
       branches:
          - main
-   workflow_disaptch:
+   workflow_dispatch:
    push:
       branches:
          - main
