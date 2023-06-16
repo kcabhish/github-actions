@@ -28,7 +28,7 @@ jobs:
       - name: Upload artifact
         run: actions/upload-artifact@v3
         with:
-        # name of the artifact that will be created
+          # name of the artifact that will be created
           name: dist-files
           path: |
             dist
