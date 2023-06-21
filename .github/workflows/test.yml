@@ -1,7 +1,7 @@
 name: Test Project
 on: push
 jobs:
-    test:
+    build:
       runs-on: ubuntu-latest
       steps:
          - name: Get code
@@ -12,8 +12,18 @@ jobs:
               node-version: 18
          - name: Install dependencies
            run: npm ci
-         - name: Run tests
-           run: npm test
+         - name: Run Build
+           run: npm build
+         - name: Upload artifact
+           uses: actions/upload-artifact@v3
+           with:
+             name: dist-files
+             path: dist
+             # path: |
+             #   dist
+             #   package.json
     deploy:
-      needs: test
+      needs: build
       uses: ./.github/workflows/reusuable.yml
+      with:
+        artifact-name: dist-files
