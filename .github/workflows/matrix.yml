@@ -7,6 +7,11 @@ jobs:
             matrix:
                 node-version: [12,14,16,20]
                 os: [ubuntu-latest, windows-latest]
+                # adding include will allow cases to run on that sepcific condition.exclude:
+                # exapmle: adding 18 in the array would run actions for both OS where as this will only run for specific condition
+                include:
+                    - node-version: 18
+                      os: ubuntu-latest
         runs-on: ${{ matrix.os }}
         steps:
             - name: Get Code

@@ -1,7 +1,7 @@
 name: Test Project
 on: push
 jobs:
-   test:
+    test:
       runs-on: ubuntu-latest
       steps:
          - name: Get code
@@ -14,3 +14,6 @@ jobs:
            run: npm ci
          - name: Run tests
            run: npm test
+    deploy:
+      needs: test
+      uses: ./.github/workflows/reusuable.yml
