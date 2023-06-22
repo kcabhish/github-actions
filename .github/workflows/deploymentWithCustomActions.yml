@@ -12,8 +12,11 @@ jobs:
            uses: actions/setup-node@v3
            with:
               node-version: 18
-         - name: Cache Dependency
+         - name: Cache and install Dependency from custom action
+           id: cached-dep-id
            uses: ./.github/actions/cached-dep
+         - name: Output information
+           run: echo "Cache used? ${{ steps.cached-dep-id.outputs.used-cache}}"
     deploy:
     # needs will make this action wait for other actions to complete
       needs: [test]
